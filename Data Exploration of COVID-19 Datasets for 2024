@@ -27,7 +27,7 @@ FROM PortfolioProject..Covid_Deaths
 GROUP BY location, population
 ORDER BY PopulationInfection_rate desc;
 
--- Countries with hgihest death count per population
+-- Countries with highest death count per population
 
 SELECT
     location,
@@ -59,7 +59,7 @@ GROUP BY date
 ORDER BY date, sum(new_cases);
 
 
--- total Global numbers
+-- Total Global numbers
 
 SELECT 
 		sum(new_cases) as total_cases,
@@ -70,7 +70,7 @@ where continent is not null
 -- GROUP BY date
 -- ORDER BY date;
 
--- total population vs vaccinations
+-- Total population vs vaccinations
 select  dea.continent, dea.location,vac.date, vac.new_vaccinations
 from PortfolioProject..Covid_Deaths dea
 join PortfolioProject..Covid_Vaccinations vac 
@@ -93,7 +93,7 @@ join PortfolioProject..Covid_Vaccinations vac
 where dea.continent is not null 
 order by 2,3
 
--- FINDING THE PERCENTAGE OF POPULATION VACCINATED BY USING THE QUERY ABOCE AS A CTE TABLE
+-- FINDING THE PERCENTAGE OF POPULATION VACCINATED BY USING THE QUERY ABOVE AS A CTE TABLE
 
 WITH population_vaccinated (continent, location, date, population, new_vaccinations, Rolling_ppl_Vaccinations)
 
